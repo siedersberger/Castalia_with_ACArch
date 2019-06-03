@@ -1,0 +1,35 @@
+clear all
+close all
+
+txA = [88.07	90.23	100.40	104.03];
+
+txS = [91.23	95.65	104.66	107.30];
+
+txL = [126.94	128.89	129.84	130.23];
+
+errorA = [2.43	1.31	2.43	1.22];
+
+errorS = [2.46	2.13	2.17	1.50];
+
+errorL = [0.64	0.24	0.24	0.12];
+
+nNodes = [50 100 150 200];
+
+p3 = errorbar(nNodes,txA,errorA,'-o','Color',[0.8 0 0],'MarkerSize',18,'LineWidth',1.5);
+hold on
+p4 = errorbar(nNodes,txS,errorS,'-.k^','MarkerSize',18,'MarkerFaceColor','k','LineWidth',1.5);
+hold on
+p5 = errorbar(nNodes,txL,errorL,'-x','Color',[0.3 0.3 0.8],'MarkerSize',20,'LineWidth',1.5);
+hold off
+
+
+ylim([7 140]);
+xlim([45 205]);
+
+grid on
+
+title('Cenário de 100x100 m²');
+xlabel('Número de nodos','FontSize',16);
+ylabel('Energia consumida (J)','FontSize',16);
+%legend([p3 p4 p5],{'ACArch','SPH','BI'},'FontSize',16)
+legend([p3 p4 p5],{'ACArch','SPH','LEACH'},'FontSize',16)
